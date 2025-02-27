@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Insights Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-7xl mx-auto">
+        <!-- Cards -->
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <div class="bg-white p-4 rounded-xl shadow flex items-center">
+                <div class="bg-black p-3 rounded-full text-yellow-400">
+                    📊
+                </div>
+                <div class="ml-4">
+                    <p class="text-lg font-bold">200</p>
+                    <p class="text-gray-500 text-sm">Listing Views</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow flex items-center">
+                <div class="bg-black p-3 rounded-full text-yellow-400">
+                    👀
+                </div>
+                <div class="ml-4">
+                    <p class="text-lg font-bold">100</p>
+                    <p class="text-gray-500 text-sm">Detailed Views</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow flex items-center">
+                <div class="bg-black p-3 rounded-full text-yellow-400">
+                    🔄
+                </div>
+                <div class="ml-4">
+                    <p class="text-lg font-bold">24.34%</p>
+                    <p class="text-gray-500 text-sm">Bounce Rate</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow flex items-center">
+                <div class="bg-black p-3 rounded-full text-yellow-400">
+                    🖱️
+                </div>
+                <div class="ml-4">
+                    <p class="text-lg font-bold">100</p>
+                    <p class="text-gray-500 text-sm">Click Through Rate</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Line Chart -->
+        <div class="bg-white p-6 rounded-lg shadow mb-6">
+            <canvas id="lineChart"></canvas>
+        </div>
+        
+        <!-- Product Tables -->
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="font-bold mb-4">Top 5 Viewed Products</h2>
+                <table class="w-full">
+                    <tr class="border-b"><th class="text-left">Product Name</th><th>Views</th></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td>24</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td>30</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td>30</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td>30</td></tr>
+                    <tr><td>Horizon UI PRO</td><td>30</td></tr>
+                </table>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="font-bold mb-4">Top 5 Inquired Products</h2>
+                <table class="w-full">
+                    <tr class="border-b"><th class="text-left">Product Name</th><th>Inquiry</th></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td>10</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td>15</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td>21</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td>32</td></tr>
+                    <tr><td>Horizon UI PRO</td><td>09</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('lineChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'],
+                datasets: [
+                    { label: 'Views', borderColor: '#FFD700', backgroundColor: 'transparent', tension: 0.4, data: [100, 120, 150, 170, 160, 180] },
+                    { label: 'Clicks', borderColor: '#00C897', backgroundColor: 'transparent', tension: 0.4, data: [80, 140, 110, 130, 120, 140] },
+                    { label: 'Bounce Rate', borderColor: '#2E2E2E', backgroundColor: 'transparent', tension: 0.4, data: [90, 100, 130, 120, 140, 150] },
+                    { label: 'Click Through Rate', borderColor: '#FFA500', backgroundColor: 'transparent', tension: 0.4, data: [70, 90, 120, 140, 130, 160] }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: true } },
+                elements: { line: { borderWidth: 3 } }
+            }
+        });
+    </script>
+</body>
+</html>

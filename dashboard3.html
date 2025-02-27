@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dashboard</title>
+    <link rel="stylesheet" href="dashboard-css.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@heroicons/vue@2.0.18/outline/esm/index.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="p-4 md:ml-64">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-bold">Product Insights</h2>
+            
+            <!-- Dropdown Menu -->
+            <div class="relative">
+                <select class="bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="All Product" selected>All Product</option>
+                    <option value="product1">Product 1</option>
+                    <option value="product2">Product 2</option>
+                    <option value="product3">Product 3</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Cards Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="bg-black p-3 rounded-full text-yellow-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-lg font-bold">200</p>
+                        <p class="text-gray-500 text-sm">Listing Views</p>
+                    </div>
+                </div>
+                <div class="text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>                  
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="bg-black p-3 rounded-full text-yellow-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-lg font-bold">100</p>
+                        <p class="text-gray-500 text-sm">Detailed Views</p>
+                    </div>
+                </div>
+                <div class="text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>                  
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="bg-black p-3 rounded-full text-yellow-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m9 9 6-6m0 0 6 6m-6-6v12a6 6 0 0 1-12 0v-3" />
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-lg font-bold">24.34%</p>
+                        <p class="text-gray-500 text-sm">Bounce Rate</p>
+                    </div>
+                </div>
+                <div class="text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>                  
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="bg-black p-3 rounded-full text-yellow-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-lg font-bold">100</p>
+                        <p class="text-gray-500 text-sm">Click Through Rate</p>
+                    </div>
+                </div>
+                <div class="text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                    </svg>                  
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-container">
+            <div class="date-range rounded-lg">
+                <input type="date" class="date-input rounded-lg" placeholder="DD/MM/YY" value="SEP">
+                <span>To</span>
+                <input type="date" class="date-input rounded-lg" placeholder="DD/MM/YY" value="FEB">
+            </div>
+            <div class="content">
+                <div class="metrics-header">
+                    <h1 class="metric-value">200</h1>
+                    <div class="metric-container">
+                        <span class="metric-label">Views</span>
+                        <span class="change-indicator">+2.45%</span>
+                    </div>
+                </div>
+                <!-- Chart Section -->
+                <div class="chart-container">
+                    <canvas id="analyticsChart"></canvas>
+                </div>
+            </div>
+            <div class="legend mt-5">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #FDBE36BB;"></div>
+                    <span>Views</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #1CB696;"></div>
+                    <span>Clicks</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #FFF553;"></div>
+                    <span>Bounce Rate</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #4C4C4C;"></div>
+                    <span>Click Through Rate</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tables Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="font-bold mb-4">Top 5 Viewed Products</h2>
+                <table class="w-full">
+                    <tr class=""><th class="text-left">Product</th><th class="text-right">Views</th></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td class="text-right">24</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td class="text-right">30</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td class="text-right">30</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td class="text-right">30</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td class="text-right">30</td></tr>
+                </table>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="font-bold mb-4">Top 5 Inquired Products</h2>
+                <table class="w-full">
+                    <tr class=""><th class="text-left">Product</th><th class="text-right">Inquiries</th></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td class="text-right">10</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td class="text-right">15</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td class="text-right">21</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td class="text-right">32</td></tr>
+                    <tr class="border-b"><td>Horizon UI PRO</td><td class="text-right">09</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        var ctx = document.getElementById('analyticsChart').getContext('2d');
+        var insightsChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB'],
+                datasets: [
+                    {
+                        label: 'Views',
+                        borderColor: '#FDBE36BB',
+                        backgroundColor: 'transparent',
+                        data: [100, 150, 108, 130, 150, 160],
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    },
+                    {
+                        label: 'Clicks',
+                        borderColor: '#1CB696',
+                        backgroundColor: 'transparent',
+                        data: [90, 200, 120, 110, 130, 140],
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    },
+                    {
+                        label: 'Bounce Rate',
+                        borderColor: '#FFF553',
+                        backgroundColor: 'transparent',
+                        data: [80, 120, 100, 200, 150, 125],
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    },
+                    {
+                        label: 'Click Through Rate',
+                        borderColor: '#4C4C4C',
+                        backgroundColor: 'transparent',
+                        data: [95, 110, 200, 120, 120, 140],
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { size: 14, weight: 'bold' } },
+                        border: { display: false } 
+                    },
+                    y: { grid: { display: false }, ticks: { display: false },border: { display: false }  }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#000',
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 12 }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
