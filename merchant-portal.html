@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Visibility Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="p-4 md:ml-64">
+        <div class="flex items-center space-x-5 mb-7">
+            <h2 class="text-xl font-bold">Product Visibility Control</h2>
+            <button class="w-6 h-6 flex items-center justify-center border rounded-full text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+                </svg>                  
+            </button>
+        </div>
+
+        <!-- Selected Count Badge -->
+        <span class="bg-gray-300 me-2 px-4 py-1.5 dark:bg-gray-700 dark:text-gray-300 rounded-full"><span id="selectedCount">0</span> Selected</span>
+
+        <div class="bg-white shadow-md p-6 rounded-lg w-full max-w-5xl mt-5">
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Available Merchant List -->
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-gray-700 font-semibold mb-2 pb-3 border-b">Available Merchant List</h3>
+                    <div class="border shadow p-4 mt-4">
+                        <input type="text" id="searchAvailable" placeholder="Search Available Merchant" 
+                            class="w-full px-3 py-2 border rounded text-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 mb-3">
+                        <ul id="availableList" class="space-y-2">
+                            <li class="border-b p-2 rounded cursor-pointer"><input type="checkbox" class="mr-2" value="YTL003"> YTL003</li>
+                            <li class="border-b p-2 rounded cursor-pointer"><input type="checkbox" class="mr-2" value="YTL004"> YTL004</li>
+                            <li class="border-b p-2 rounded cursor-pointer"><input type="checkbox" class="mr-2" value="YTL005"> YTL005</li>
+                            <li class="border-b p-2 rounded cursor-pointer"><input type="checkbox" class="mr-2" value="YTL006"> YTL006</li>
+                            <li class="border-b p-2 rounded cursor-pointer"><input type="checkbox" class="mr-2" value="YTL003"> YTL003</li>
+                            <li class="border-b p-2 rounded cursor-pointer"><input type="checkbox" class="mr-2" value="YTL004"> YTL004</li>
+                            <li class="border-b p-2 rounded cursor-pointer"><input type="checkbox" class="mr-2" value="YTL005"> YTL005</li>
+                            <li class="border-b p-2 rounded cursor-pointer"><input type="checkbox" class="mr-2" value="YTL006"> YTL006</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Move Buttons -->
+                <div class="flex flex-col justify-center space-y-4">
+                    <!-- Move All to Selected -->
+                    <button id="moveAllRight" class="text-sm w-24 p-3"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </button>
+
+                    <!-- Move Right Button -->
+                    <button id="moveRight" class="text-black p-3 rounded">
+                        <svg viewBox="0 0 192 512" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+                            <path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Move Left Button -->
+                    <button id="moveLeft" class="text-gray-500 p-3 rounded">
+                        <svg viewBox="0 0 192 512" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+                            <path fill="currentColor" d="M192 127.338v257.324c0 17.818-21.543 26.741-34.142 14.142L29.196 270.142c-7.81-7.81-7.81-20.474 0-28.284l128.662-128.662c12.599-12.6 34.142-3.676 34.142 14.142z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Move All to Available -->
+                    <button id="moveAllLeft" class="text-sm w-24 p-3"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+                      </svg>
+                    </button>
+                </div>
+
+                <!-- Selected Merchant List -->
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-gray-700 font-semibold mb-2 pb-3 border-b">Selected Merchant List</h3>
+                    <div class="shadow p-4 mt-4">
+                        <input type="text" id="searchSelected" placeholder="Search Merchant Name"
+                            class="w-full px-3 py-2 border rounded text-sm placeholder-gray-400 focus:ring-2 focus:ring-blue-500 mb-3">
+                        <ul id="selectedList" class="space-y-2">
+                            <!-- Moved items appear here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-4 flex justify-end gap-3">
+            <button class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
+            <button class="bg-yellow-500 text-white px-4 py-2 rounded">Save</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            function updateCount() {
+                $("#selectedCount").text($("#selectedList li").length);
+            }
+
+            $("#moveRight").click(function () {
+                $("#availableList input:checked").each(function () {
+                    $("#selectedList").append(`<li class="border-b p-2 rounded cursor-pointer"><input type="checkbox" class="mr-2" value="${this.value}" checked> ${this.value}</li>`);
+                    $(this).parent().remove();
+                });
+                updateCount();
+            });
+
+            $("#moveLeft").click(function () {
+                $("#selectedList input:checked").each(function () {
+                    $("#availableList").append(`<li class="border-b p-2 rounded cursor-pointer"><input type="checkbox" class="mr-2" value="${this.value}"> ${this.value}</li>`);
+                    $(this).parent().remove();
+                });
+                updateCount();
+            });
+
+            // Move all items to Selected
+            $("#moveAllRight").click(function () {
+                $("#availableList li").each(function () {
+                    $("#selectedList").append($(this));
+                });
+                updateCount();
+            });
+
+            // Move all items back to Available
+            $("#moveAllLeft").click(function () {
+                $("#selectedList li").each(function () {
+                    $("#availableList").append($(this));
+                });
+                updateCount();
+            });
+        });
+    </script>
+</body>
+</html>
